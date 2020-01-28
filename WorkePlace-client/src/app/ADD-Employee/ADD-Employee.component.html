@@ -1,0 +1,45 @@
+<div class="conntainer" style="border:solid 1px; margin-left: 25%;margin-right: 25%; padding: 2%;"  >
+
+
+  
+  <form #editForm="ngForm" class="form-group" (ngSubmit)="ADD()" required >
+    <h2 style="color:orangered; text-align: center;" >Add Employee</h2>
+
+<div class="form-col">
+  <div class="form-group row-md-4" >
+  <label>First Name:</label>
+  <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" placeholder="firstName" required />
+</div>
+</div>
+
+<div class="form-col">
+  <div class="form-group row-md-4" >
+  <label>Last Name:</label>
+  <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastName" placeholder="lastName" required />
+</div>
+</div>
+
+
+<div class="form-col">
+  <div class="form-group row-md-4" >
+  <label>ID number:</label>
+  <input (keypress)="numberOnly($event)" type="text" class="form-control" name="identityCard" [(ngModel)]="model.identityCard" placeholder="id number (number only)" required  />
+</div>
+</div>
+
+<div class="form-col" >
+  <div class="form-group row-md-4" >
+<label for="manager">manager</label>
+<select  required  name="manager" class="form-control"(change)="selectChangeHandler($event)"  >
+<option value="" disabled selected hidden>select manager</option>
+<option  *ngFor="let manager of managers" id="managerid" [value]="manager.id" >{{manager.firstName}}</option>
+  
+</select>
+</div>
+</div>
+<button [disabled]="editForm.form.invalid"  class="btn btn-success" type="submit">Submit</button>
+  
+  </form>
+
+
+</div>

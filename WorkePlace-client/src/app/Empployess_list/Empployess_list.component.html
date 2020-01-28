@@ -1,0 +1,63 @@
+<div class="container mt-5" >
+  <H1 >Employees List</H1> 
+  <div style=" margin-bottom: 15%;" class="form-row "  >
+
+
+
+ <div class="form-group col-md-3" >
+
+  <label for="FirstName" >Search by First Name</label>
+  <input [(ngModel)]="FirstName" calss="" type="text" name="firstName" placeholder="Type First Name" required>
+  <button  type="submit"  [disabled]="!FirstName" class="btn btn-info group" (click)="SearchByFirstName(FirstName)" >Search</button>
+    </div>
+
+
+
+  <div class="form-group col-md-3" >
+  <label for="lestName" >Search by Lest Name</label>
+  <input [(ngModel)]="LestName" calss="" type="text" name="LestName" placeholder="Type Lest Name" required>
+  <button   type="submit"  [disabled]="!LestName" class="btn btn-info group" (click)="SearchBYLestName(LestName)" >Search</button>
+</div>
+
+
+
+  <div class="form-group col-md-3" >
+  <label  for="identitycard" >Search by identity card</label>
+  <input [(ngModel)]="IdentityCard" calss="" type="text" name="identitycard" placeholder="Type id number" required>
+  <button  type="submit"   [disabled]="!IdentityCard" class="btn btn-info group"  (click)="SearchBYidentitycard(IdentityCard)" >Search</button>
+</div>
+</div>
+
+
+
+<button style="margin-bottom: 5%; margin-right: 1%;"  class="btn btn-info"  (click)="start()" >Refresh List</button>
+
+<button style="margin-bottom: 5%;"  class="btn btn-success "  (click)="navigat_add()" >Add new employee</button>
+
+<table class="table table-hover ">
+  <thead style="background-color:rgb(12, 9, 20);">
+    <tr>
+      <th scope="col">Id Nembar</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Laest Nane</th>
+      <th scope="col">Director</th>
+      <th scope="col">Delite</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody  >
+    <tr *ngFor="let employee of Empployess">
+      <th>{{employee.identityCard}} </th> 
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.managername}}</td>
+      <td><button class="btn btn-danger"  (click)="alert(employee.id)" >Delete</button></td>
+      <td><button class="btn btn-warning" (click)="gotoedit(employee.id)" >Edit</button></td>
+
+    </tr>
+    
+    
+  </tbody>
+</table>
+
+</div>

@@ -20,16 +20,19 @@ export class ManagersComponent implements OnInit {
   constructor(private man: ManagerService, private route: Router) { }
 
   ngOnInit() {
-    this.man.getallmanagers().subscribe(data=>{this.Managers=data},error=> {alert('cant get data')});
+    this.man.getallmanagers().subscribe(data => {this.Managers = data; } , error => {alert(error); });
 
   }
   getemploye(id: number) {
-this.man.getaem(id).subscribe(data => {this.Empployess = data }, error=> {alert('cant get data')});
+
+this.man.getaem(id).subscribe(data => {this.Empployess = data; }, error => { this.Empployess = null, alert(error); } );
+
   }
-  selectChangeHandler(event: any){
-   this.emid=event.target.value;
+  selectChangeHandler(event: any) {
+
+   this.emid = Number(event.target.value);
   }
-  gotoaddmanager(){
+  gotoaddmanager() {
 this.route.navigate(['AddManager']);
   }
 }

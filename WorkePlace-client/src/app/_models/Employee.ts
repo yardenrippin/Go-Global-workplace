@@ -11,6 +11,6 @@ export interface Employee {
 
         identityCard: string;
 
-        managername: string;
+        manager_FirstName: string;
 
 }

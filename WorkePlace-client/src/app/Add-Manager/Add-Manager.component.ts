@@ -24,7 +24,7 @@ export class AddManagerComponent implements OnInit {
 
   ADD() {
 
-    this.mansrevice.Add(this.model).subscribe(x=>{this.router.navigate(['Managers']);} ,error=>{alert("data not savde")});
+    this.mansrevice.Add(this.model).subscribe(x => {this.router.navigate(['Managers']);} , error => {alert(error); });
     }
 
     numberOnly(event): boolean {

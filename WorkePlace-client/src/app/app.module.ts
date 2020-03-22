@@ -7,12 +7,16 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { Empployess_listComponent } from './Empployess_list/Empployess_list.component';
 import { ManagersComponent } from './managers/managers.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EditEmployyeComponent } from './Edit-Employye/Edit-Employye.component';
 import { ADDEmployeeComponent } from './ADD-Employee/ADD-Employee.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AddManagerComponent } from './Add-Manager/Add-Manager.component';
+import { ErrorInterceptorProvider } from './services/error.interceptor';
+
+
+
 
 @NgModule({
    declarations: [
@@ -29,9 +33,10 @@ import { AddManagerComponent } from './Add-Manager/Add-Manager.component';
       HttpClientModule,
       BrowserModule,
       FormsModule,
+      ReactiveFormsModule,
       RouterModule.forRoot(appRoutes)
    ],
-   providers: [],
+   providers: [ErrorInterceptorProvider],
    bootstrap: [
       AppComponent
    ]

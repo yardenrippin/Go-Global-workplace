@@ -6,7 +6,7 @@ import { Manager } from '../_models/Manager';
 import { EmployeeService } from '../services/employee.service';
 import { ManagerService } from '../services/Manager.service';
 import { HttpClient } from '@angular/common/http';
-import { error } from 'util';
+import { error, debug, debuglog } from 'util';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -22,29 +22,32 @@ Employee: Employee;
 selected;
 
 
+
 constructor(private rout: Router, private route: ActivatedRoute, private em: EmployeeService, private man: ManagerService) { }
 
   ngOnInit() {
 
-   this.Employeeid = this.route.snapshot.params.id;
-
-   this.getimployee(this.Employeeid);
+   this.Employeeid = Number( this.route.snapshot.params.id);
+   this.getemployee(this.Employeeid);
    this.getmanagers();
-  }
 
-  uspdateEmployey(id: number) {
 
   }
+
+ 
   ADD() {
     this.model.managerID = this.selected;
-    this.em.Update(this.model).subscribe(() => {this.rout.navigate(['Empployess_list']);}, error => {alert('data dont saved');});
+    
+    this.em.Update(this.model).subscribe( () => {  this.rout.navigate(['Empployess_list']);}, error => {alert(error)});
   }
-  getimployee(id: number) {
-    this.em.getallemployee(id).subscribe(data => {this.model = data, this.selected = data.managerID;}, error => {alert('cant get data');});
+  getemployee(id: number) {
+
+    this.em.getallemployee(id).subscribe(data => { this.model = data, this.selected = data.managerID;}, error => {alert(error)});
 
   }
   getmanagers() {
-    this.man.getallmanagers().subscribe(data => {this.managers = data;}, error => {alert('cant get data');});
+
+    this.man.getallmanagers().subscribe(data => {this.managers = data;},error => {alert(error)});
   }
 
   selectChangeHandler(event: any) {

@@ -47,7 +47,7 @@ namespace My_workeplae.Data
             return await _Context.SaveChangesAsync() > 0;
         }
 
-        public async Task<IEnumerable<object>> Getemployees(int id)
+        public async Task<IEnumerable<Employees>> Getemployees(int id)
         {
             var employees = await _Context.Employees.Where(x => x.ManagerID == id).ToListAsync();
 

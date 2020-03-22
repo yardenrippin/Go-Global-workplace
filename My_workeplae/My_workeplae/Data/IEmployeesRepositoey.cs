@@ -10,13 +10,13 @@ namespace My_workeplae.Data
     {
         void Add(Employees employees);
         Task Delete(int id);
-        Task updted(Employees em);
-        Task<IEnumerable<Object>> GetAllEmployees();
+        Task<IEnumerable<Employees>> GetAllEmployees();
         Task<Employees> GetEmployee(int id);
-        Task<IEnumerable<Object>> GetEmployeesByFirsName(string firstname);
-        Task<IEnumerable<Object>> GetEmployeesByLastName(string LastName);
-        Task<IEnumerable<Object>> GetEmployeesByIdentityCard(string identityCard);
+        Task<IEnumerable<Employees>> GetEmployeesByFirsName(string firstname);
+        Task<IEnumerable<Employees>> GetEmployeesByLastName(string LastName);
+        Task<IEnumerable<Employees>> GetEmployeesByIdentityCard(string identityCard);
         Task<bool> SaveAll();
+        bool Update();
 
 
     }

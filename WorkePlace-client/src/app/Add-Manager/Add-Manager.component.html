@@ -8,14 +8,14 @@
 <div class="form-col">
   <div class="form-group row-md-4" >
   <label>First Name:</label>
-  <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" placeholder="firstName" required />
+  <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName"minlength="2" maxlength="20" placeholder="firstName (2-20 characters)" required />
 </div>
 </div>
 
 <div class="form-col">
   <div class="form-group row-md-4" >
   <label>Last Name:</label>
-  <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastName" placeholder="lastName" required />
+  <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastName"minlength="2" maxlength="20" placeholder="lastName (2-20 characters)" required />
 </div>
 </div>
 
@@ -23,7 +23,7 @@
 <div class="form-col">
   <div class="form-group row-md-4" >
   <label>ID number:</label>
-  <input (keypress)="numberOnly($event)" type="text" class="form-control" name="identityCard" [(ngModel)]="model.identityCard" placeholder="id number (number only)" required  />
+  <input (keypress)="numberOnly($event)" type="text" class="form-control" name="identityCard" [(ngModel)]="model.identityCard" minlength="4" maxlength="10" placeholder="id number ( 4-10 numbers)" required  />
 </div>
 </div>
 

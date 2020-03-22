@@ -32,11 +32,13 @@ Delete(id: number) {
 return this.http.get(this.baseUrl + 'Employees/delete?id='+id);
  
 }
-Add(employee: Employee ) {
-  return this.http.post(this.baseUrl + 'Employees/Add' , employee);
+Add(employee: Employee ): Observable<any> {
+  return this.http.post<Employee>(this.baseUrl + 'Employees/Add' , employee);
 }
-Update(employee: Employee){
-  return this.http.post(this.baseUrl + 'Employees/update' , employee);
+
+Update(employee: Employee): Observable<any>{
+
+  return this.http.put<Employee>(this.baseUrl + 'Employees/update' , employee);
 }
 search_firstname(str: string): Observable<any> {
 return this.http.get<Employee>(this.baseUrl +'Employees/byfirstname?firstname=' + str);

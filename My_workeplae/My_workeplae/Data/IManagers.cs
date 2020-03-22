@@ -13,6 +13,6 @@ namespace My_workeplae.Data
         Task<IEnumerable<Managers>> GetManagers();
         Task<Managers> Manager(int id);
         Task<bool> SaveAll();
-        Task <IEnumerable<object>> Getemployees(int id);
+        Task <IEnumerable<Employees>> Getemployees(int id);
     }
 }

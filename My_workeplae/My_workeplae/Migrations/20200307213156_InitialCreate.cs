@@ -13,9 +13,9 @@ namespace My_workeplae.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    IdentityCard = table.Column<string>(nullable: true)
+                    FirstName = table.Column<string>(maxLength: 20, nullable: false),
+                    LastName = table.Column<string>(maxLength: 20, nullable: false),
+                    IdentityCard = table.Column<string>(maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,10 +28,10 @@ namespace My_workeplae.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    IdentityCard = table.Column<string>(nullable: true),
-                    ManagerID = table.Column<int>(nullable: false)
+                    FirstName = table.Column<string>(maxLength: 20, nullable: false),
+                    LastName = table.Column<string>(maxLength: 20, nullable: false),
+                    IdentityCard = table.Column<string>(maxLength: 10, nullable: false),
+                    ManagerID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

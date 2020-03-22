@@ -25,27 +25,37 @@ namespace My_workeplae.Controllers
         {
             var managers = await _repo.GetManagers();
 
+            if (managers == null || managers.Count() <= 0)
+                return BadRequest ("there is no managers to show");
             return Ok(managers);
         }
 
         [HttpGet("employe")]
-        public async Task<IActionResult> Getemploye(int id)
+        public async Task<IActionResult> Getemployees(int id)
         {
+            if (id <= 0)
+                return BadRequest("cnot get list");
 
             var employees = await _repo.Getemployees(id);
+
+            if (employees == null || employees.Count()<=0)
+                return BadRequest("this manager Donot Have any Subordinate employees");
 
             return Ok(employees);
 
         }
         [HttpPost("Add")]
-        public async Task<IActionResult> add([FromBody] Managers manager)
+        public async Task<IActionResult> Add([FromBody] Managers manager)
         {
+      
+            if (manager == null)
+                return BadRequest("manager failed on add ");
             _repo.Add(manager);
 
             if (await _repo.SaveAll())
                 return Ok();
 
-            return NoContent();
+            throw new Exception(" manager" + manager.FirstName + " failed on add ");
         }
 
     }

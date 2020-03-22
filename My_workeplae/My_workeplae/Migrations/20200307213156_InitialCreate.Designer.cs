@@ -9,7 +9,7 @@ using My_workeplae;
 namespace My_workeplae.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200123205638_InitialCreate")]
+    [Migration("20200307213156_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,17 @@ namespace My_workeplae.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
-                    b.Property<string>("IdentityCard");
+                    b.Property<string>("IdentityCard")
+                        .IsRequired()
+                        .HasMaxLength(10);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.Property<int>("ManagerID");
 
@@ -47,11 +53,17 @@ namespace My_workeplae.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
-                    b.Property<string>("IdentityCard");
+                    b.Property<string>("IdentityCard")
+                        .IsRequired()
+                        .HasMaxLength(10);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.HasKey("ID");
 

@@ -8,14 +8,15 @@
 <div class="form-col">
   <div class="form-group row-md-4" >
   <label>First Name:</label>
-  <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" placeholder="firstName" required />
+  <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName"minlength="2" maxlength="20" placeholder="firstName (2-20 characters)" required />
+  
 </div>
 </div>
 
 <div class="form-col">
   <div class="form-group row-md-4" >
   <label>Last Name:</label>
-  <input type="text" value="Mickey" class="form-control" name="lastname" [(ngModel)]="model.lastName" placeholder="lastName" required />
+  <input type="text" value="Mickey" class="form-control" name="lastname" [(ngModel)]="model.lastName"minlength="2" maxlength="20" placeholder="lastName (2-20 characters)" required />
 </div>
 </div>
 
@@ -23,7 +24,7 @@
 <div class="form-col">
   <div class="form-group row-md-4" >
   <label>ID number:</label>
-  <input (keypress)="numberOnly($event)" type="text" class="form-control" name="identityCard" [(ngModel)]="model.identityCard" placeholder="id number (number only)" required  />
+  <input (keypress)="numberOnly($event)" type="text" class="form-control" name="identityCard" [(ngModel)]="model.identityCard"minlength="4" maxlength="10" placeholder="id number ( 4-10 numbers)" required  />
 </div>
 </div>
 
@@ -31,7 +32,7 @@
   <div class="form-group row-md-4" >
 <label for="manager">manager</label>
 <select  required  name="manager" class="form-control"(change)="selectChangeHandler($event)"  >
-  <option value="" disabled selected hidden>select manager</option>
+  <option value="" disabled selected hidden>{{model.manager_FirstName}}</option>
 <option  *ngFor="let manager of managers" id="managerid" [value]="manager.id" >{{manager.firstName}}</option>
   
 </select>
@@ -39,6 +40,8 @@
 </div>
 <button [disabled]="editForm.form.invalid"  class="btn btn-success" type="submit">Submit</button>
   
+
+
   </form>
 
 
